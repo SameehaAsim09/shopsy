@@ -34,17 +34,18 @@ export default function LoginSingnUp() {
       <div className="loginsignup-container">
         <h1>Sign up</h1>
         <div className="loginsignup-fields">
-          <input type="text" placeholder='Your name' onChange={nameHandler}/>
+          <input type="text" placeholder='Your name' onChange={nameHandler} />
           <input type="email" placeholder='Your email' onChange={emailHandler} />
-          <input type="password" placeholder='Your Password' onChange={passwordHandler}/>
+          <input type="password" placeholder='Your Password' onChange={passwordHandler} />
         </div>
-        <button onClick={continueHandler}>Continue</button>
-        <p className='loginsignup-login'>Already have an account?<span> Login here</span></p>
         <div className="loginsignup-agree">
           <input type="checkbox" name='' id='' />
           <p>By continuing, I agree to your terms & Privacy policy.</p>
         </div>
+        <button onClick={continueHandler}>Continue</button>
+        <p className='loginsignup-login'>Already have an account?<span> Login here</span></p>
       </div>
     </div>
   )
 }
+
