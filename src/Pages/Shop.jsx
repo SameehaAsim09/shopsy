@@ -6,13 +6,16 @@ import NewCollections from '../Components/newCollections/NewCollections'
 import NewsLetter from '../Components/NewsLetter/NewsLetter'
 
 export default function Shop() {
+  const subcribe = (e) => {
+    console.log(e);
+  }
   return (
     <div>
       <Hero />
       <Popular />
       <Offers />
       <NewCollections />
-      <NewsLetter />
+      <NewsLetter subcribeHandler={subcribe}/>
     </div>
   )
 }
