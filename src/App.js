@@ -12,6 +12,9 @@ import women_banner from'./Components/Assets/banner_women.png'
 import kids_banner from'./Components/Assets/banner_kids.png'
 
 function App() {
+  const buttonHandler= (e) => {
+    console.log(e);
+  }
   return (
     <div >
       <BrowserRouter>
@@ -25,7 +28,7 @@ function App() {
           <Route path=':productId' element={<Product />} />
         </Route>
         <Route path='/cart' element={<Cart />} />
-        <Route path='/login' element={<LoginSingnUp />} />
+        <Route path='/login' element={<LoginSingnUp onSubmitData={buttonHandler}/>} />
       </Routes>
       <Footer />
       </BrowserRouter>

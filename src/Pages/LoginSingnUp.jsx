@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import './CSS/LoginSignup.css'
 
-export default function LoginSingnUp() {
+export default function LoginSingnUp(props) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [namerr, setNamerr] = useState(false)
 
   const nameHandler = (e) => {
     setName(e.target.value)
+    setNamerr(e.target.value.trim().length >= 3 ? true: false);
   }
   const emailHandler = (e) => {
     setEmail(e.target.value)
@@ -22,11 +24,12 @@ export default function LoginSingnUp() {
       name: name,
       email: email,
       password: password,
-    }
-    console.log(data);
-    setName('')
-    setEmail('')
-    setPassword('')
+    };
+    
+    setName('');
+    setEmail('');
+    setPassword('');
+    props.onSubmitData(data);
   }
 
   return (
@@ -35,6 +38,7 @@ export default function LoginSingnUp() {
         <h1>Sign up</h1>
         <div className="loginsignup-fields">
           <input type="text" placeholder='Your name' onChange={nameHandler} />
+          {!namerr && (<p className='error_msg'>* Name must be more than 3 characters</p>)}
           <input type="email" placeholder='Your email' onChange={emailHandler} />
           <input type="password" placeholder='Your Password' onChange={passwordHandler} />
         </div>
